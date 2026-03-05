@@ -20,7 +20,7 @@
     <article class="card">
       <h1>Egil</h1>
       <div class="image-variant-wrap">
-        <img src="../../postavy/Egil.png" alt="Egil" class="vorn-image js-variant-image" />
+        <img src="../postavy/Egil.png" alt="Egil" class="vorn-image js-variant-image" />
         <div class="variant-toggle" role="group" aria-label="Verze obrázku">
           <button type="button" class="variant-btn is-active" data-variant="normal">Normální</button>
           <button type="button" class="variant-btn" data-variant="hero">HERO</button>
@@ -41,8 +41,8 @@
       var image = wrap.querySelector('.js-variant-image');
       var buttons = wrap.querySelectorAll('.variant-btn');
       var variants = {
-        normal: '../../postavy/Egil.png',
-        hero: '../../postavy/Egil HERO.jpeg'
+        normal: '../postavy/Egil.png',
+        hero: '../postavy/Egil HERO.jpeg'
       };
       buttons.forEach(function (btn) {
         btn.addEventListener('click', function () {
@@ -58,4 +58,5 @@
   </script>
 </body>
 </html>
+
 
