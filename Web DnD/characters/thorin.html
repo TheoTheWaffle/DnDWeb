@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Thorin – profil</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Chult – Archiv</a>
+    <nav class="nav">
+      <a href="../index.html">Domů</a>
+      <a href="../characters.html" class="active">Postavy & NPC</a>
+      <a href="../world.html">Svět</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h1>Thorin</h1>
+      <div class="image-variant-wrap">
+        <img src="../../postavy/Thorin.png" alt="Thorin" class="vorn-image js-variant-image" />
+        <div class="variant-toggle" role="group" aria-label="Verze obrázku">
+          <button type="button" class="variant-btn is-active" data-variant="normal">Normální</button>
+          <button type="button" class="variant-btn" data-variant="hero">HERO</button>
+        </div>
+      </div>
+
+      <p>Thorin se narodil v kamenn&#253;ch s&#237;n&#237;ch star&#233;ho trpaslič&#237;ho s&#237;dla ukryt&#233;ho v pahorc&#237;ch severn&#237;ho Faer&#251;nu. Jeho klan nebyl uzavřen&#253; ani bohat&#253;, ale zn&#225;m&#253; jako obr&#225;nci okoln&#237; krajiny a obchodn&#237;ch cest. Od ml&#225;d&#237; byl veden k discipl&#237;ně a boji a brzy se stal pěš&#237;m v&#225;lečn&#237;kem chr&#225;n&#237;c&#237;m vesnice a karavany před gobliny, bandity a dalš&#237;mi hrozbami. Během jedn&#233; nešťastn&#233; v&#253;pravy došlo k selh&#225;n&#237;, kter&#233; st&#225;lo životy jeho druhy. Thorin převzal č&#225;st viny a klan opustil dobrovolně, se zbran&#237; darovanou za službu. Putov&#225;n&#237; ho nakonec přivedlo k nov&#233; družině dobrodruhů, kde znovu našel smysl v boji po boku ostatn&#237;ch. Stonevein je, kter&#253; vede Borin Stonevein, kter&#253; Elder cel&#233;ho klanu. Thorin mel moznost se st&#225;t kamen&#237;kem nebo kop&#225;čem, ale neměl na to trpělivost. Klan je přev&#225;žně c&#237;len&#253; na obranu, vojenstv&#237;. Můj mentor se jmenoval Dornak, proste typick&#253; veter&#225;n, kter&#253; mě naučil všechno co um&#237;m, př&#237;sn&#253; ale spravedliv&#253;. V t&#233; tragick&#233; v&#253;pravě padli 2 dalš&#237; trpasl&#237;ci Kheldrum a Bramli spolu s asi 8 lidmi co jsme měli ochr&#225;nit když celou partu přepadly. Thorin si pamatuje jen z&#225;blesk v jeho oč&#237;ch, potom jak mu p&#237;skalo v uš&#237;ch. Když se probral tak cel&#225; parta byla zmasakrov&#225;na a on jedin&#253; přeživš&#237;, c&#237;t&#237; vinu protože nev&#237; co se vlastně stalo a připad&#225; si ze ztratil svou čest jako bojovn&#237;k, protože nedok&#225;zal nikoho ochr&#225;nit. S hanbou se vr&#225;til do klanu a společně s jeho v&#225;lečn&#253;m kladivem, kter&#253; dostal od sv&#233;ho mentora klan opoušt&#237;. Ne jako vyhnanec, ale jako bojovn&#237;k co chce obnovit svou čest.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Chult Archiv – D&D Kampanie</p>
+  </footer>
+  <script>
+    (function () {
+      var wrap = document.querySelector('.image-variant-wrap');
+      if (!wrap) return;
+
+      var image = wrap.querySelector('.js-variant-image');
+      var buttons = wrap.querySelectorAll('.variant-btn');
+      var variants = {
+        normal: '../../postavy/Thorin.png',
+        hero: '../../postavy/Thorin HERO.png'
+      };
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var variant = btn.getAttribute('data-variant');
+          if (!variants[variant]) return;
+          image.setAttribute('src', variants[variant]);
+          image.setAttribute('alt', variant === 'hero' ? 'Thorin HERO' : 'Thorin');
+          buttons.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+

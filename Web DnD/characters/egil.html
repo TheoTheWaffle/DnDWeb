@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Egil – profil</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Chult – Archiv</a>
+    <nav class="nav">
+      <a href="../index.html">Domů</a>
+      <a href="../characters.html" class="active">Postavy & NPC</a>
+      <a href="../world.html">Svět</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h1>Egil</h1>
+      <div class="image-variant-wrap">
+        <img src="../../postavy/Egil.png" alt="Egil" class="vorn-image js-variant-image" />
+        <div class="variant-toggle" role="group" aria-label="Verze obrázku">
+          <button type="button" class="variant-btn is-active" data-variant="normal">Normální</button>
+          <button type="button" class="variant-btn" data-variant="hero">HERO</button>
+        </div>
+      </div>
+
+      <p>Egil se narodil rodině norm&#225;ln&#237;ch lidsk&#253;ch ryb&#225;řů. Ale protože Egil se narodil jako Aasimar, začali lidi ve vesnici jeho matku naz&#253;vat jako „nevěrnou“ a on byl viděn jakožto druhoř&#225;dn&#253; občan. Určitě nepomohlo to, že jeho matka po porodu zemřela a proto Egil nepoznal l&#225;sku ani vřelost cel&#233; dětstv&#237;. Když se stal plnolet&#253;m tak už ho nebavilo jak se k&#160;němu tito lid&#233; chovaj&#237;, tak se schoval na jedno n&#225;hodnou loď a odjel. Pot&#233; sk&#225;kal z&#160;jedn&#233; lodi na druhou po skoro rok, dokud nebyl nalezen na palubě Oběšence. Norm&#225;ln&#237; loď v&#160;př&#237;stavu, ale ve chv&#237;li co vypluli si nat&#225;hli černou vlajku, s&#160;lebkou a opr&#225;tkou na stěžen a bylo jasn&#233;, že se jedn&#225; o pir&#225;tskou sebranku. Pos&#225;dka Oběšence, chtěla Egila hodit přes palubu, hned jak ho spatřili, ale kapit&#225;nka Am&#233;lie v&#160;něm cosi viděla a dala mu tud&#237;ž šanci se osvědčit. Po 3 měs&#237;ce se k&#160;němu chovali skoro stejně jako v&#160;Rottesheimu. Ale po uplynut&#237; t&#233;to doby, kdy dělal všechny nechtěn&#233; pr&#225;ce, se k&#160;němu pos&#225;dka začala chovat př&#225;telštěji a to bylo poprv&#233; co Egil poznal vřelost. Pos&#225;dka mu uk&#225;zala, jak se chovat jako spr&#225;vn&#253; pir&#225;t, a taky jak to skr&#253;t. Egil nebyl nejsilnějš&#237;, ale byl mrštn&#253; a vynal&#233;zav&#253;, a d&#237;ky tomu dostal po ř letech služby dostatek důvěry, aby velel svoj&#237; vlastn&#237; lodi a pos&#225;dky pod vlajkou kapit&#225;nky Am&#233;lie. Dokonce se mu i dařilo po nějak&#253; ten čas, bohužel minulost ho dohonila. Jednou v&#160;noci byla Egilova loď přepadena. Z&#160;t&#233; noci si Egil vybavuje jasně jednu tv&#225;ř osvětlenou z&#160;pochodn&#237;. Ta tv&#225;ř patřila jeho zatracen&#233;mu fotrovi. A hul&#225;k&#225;n&#237;, že jim toto bylo přik&#225;z&#225;no vyšš&#237; moc&#237;. Potom co Egilova loď šla ke dnu, kapit&#225;n šel s&#160;n&#237;. V&#160;hloubi vody si Egil pamatuje jak ztr&#225;cel pomalu vědom&#237;, že se přisl&#237;bil něčemu. Ten slib mu ale d&#225; s&#237;lu se pomst&#237;t, jak těm zpropaden&#253;m lidem, co ho tr&#225;pily cel&#233; dětstv&#237; a nemohli ho ani nechat v&#160;poklidu odej&#237;t, tak těm, o kter&#253;ch si myslel že jsou ta „vyšš&#237; moc“ a kteř&#237; můžou i za jeho strasti a narozen&#237;, neboli celesti&#225;ly. Pak omdlel a probudil se na pl&#225;ži, kterou neznal.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Chult Archiv – D&D Kampanie</p>
+  </footer>
+  <script>
+    (function () {
+      var wrap = document.querySelector('.image-variant-wrap');
+      if (!wrap) return;
+      var image = wrap.querySelector('.js-variant-image');
+      var buttons = wrap.querySelectorAll('.variant-btn');
+      var variants = {
+        normal: '../../postavy/Egil.png',
+        hero: '../../postavy/Egil HERO.jpeg'
+      };
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var variant = btn.getAttribute('data-variant');
+          if (!variants[variant]) return;
+          image.setAttribute('src', variants[variant]);
+          image.setAttribute('alt', variant === 'hero' ? 'Egil HERO' : 'Egil');
+          buttons.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+

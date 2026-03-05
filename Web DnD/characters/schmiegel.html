@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Schmeigel – profil</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Chult – Archiv</a>
+    <nav class="nav">
+      <a href="../index.html">Domů</a>
+      <a href="../characters.html" class="active">Postavy & NPC</a>
+      <a href="../world.html">Svět</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h1>Schmeigel</h1>
+            <div class="image-variant-wrap">
+        <img src="../../postavy/Schmiegel.png" alt="Schmiegel" class="vorn-image js-variant-image" />
+        <div class="variant-toggle" role="group" aria-label="Verze obrázku">
+          <button type="button" class="variant-btn is-active" data-variant="normal">Normální</button>
+          <button type="button" class="variant-btn" data-variant="hero">HERO</button>
+        </div>
+      </div>
+
+      <p>Od mala žil se sv&#253;m str&#253;cem Orrynem, kter&#253; byl star&#253; šarlat&#225;n a v ml&#225;d&#237; ho naučil jeho umu. Kvůli jeho podvodn&#253;m pl&#225;nům a lživosti nebyl viděn v jeho komunitě pozitivně, ale potom, co okradl starostovy vzd&#225;len&#233; př&#237;buzn&#233;, co přijeli na n&#225;vštěvu byl starostou vsi Valrugem vyhoštěn. Jeho ambice ho však zavedly do města, o kter&#233;m často sl&#253;ch&#225;val. Tam ihned zapadl mezi ostatn&#237; šmel&#237;ře, švindl&#237;ře, podvodn&#237;ky a podfuk&#225;ře. Tr&#225;vil svůj čas pobl&#237;ž krčem a hospod, kde vyhl&#237;žel pro proch&#225;zej&#237;c&#237; poutn&#237;ky, kter&#233; by mohl obrat o vše, co by unesl. Často se dost&#225;val do probl&#233;mů s lok&#225;ln&#237;mi autoritami a z&#225;konem, ale nikdy nebyl lapen, jelikož zn&#225; všechny temn&#233; uličky jako sv&#233; boty. Tvrd&#237;, že mu nevad&#237;, že ho byl vyhoštěn, ale touž&#237; po m&#237;stě, kam by zapadl.</p>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Chult Archiv – D&D Kampanie</p>
+  </footer>
+  <script>
+    (function () {
+      var wrap = document.querySelector('.image-variant-wrap');
+      if (!wrap) return;
+      var image = wrap.querySelector('.js-variant-image');
+      var buttons = wrap.querySelectorAll('.variant-btn');
+      var variants = {
+        normal: '../../postavy/Schmiegel.png',
+        hero: '../../postavy/Schmiegel HERO.png'
+      };
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var variant = btn.getAttribute('data-variant');
+          if (!variants[variant]) return;
+          image.setAttribute('src', variants[variant]);
+          image.setAttribute('alt', variant === 'hero' ? 'Schmiegel HERO' : 'Schmiegel');
+          buttons.forEach(function (b) { b.classList.remove('is-active'); });
+          btn.classList.add('is-active');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
