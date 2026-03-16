@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blodreina - profil</title>
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../index.html">Chult - Archiv</a>
+    <nav class="nav">
+      <a href="../index.html">Domu</a>
+      <a href="../characters.html" class="active">Postavy &amp; NPC</a>
+      <a href="../world.html">Svet</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <article class="card">
+      <h1>Blodreina</h1>
+
+      <section>
+        <h2>O postave</h2>
+        <p>Blodreina pocházi z malé vesnice, která byla zničena neznámými útočníky. Prežila jako jediná.</p>
+        <p>Jeji příběh je spojený s násilnou ztrátou, hněvem a postupně silícími vizemi.</p>
+      </section>
+
+      <section>
+        <h2>Portret</h2>
+        <button type="button" class="button js-toggle-portrait">Zobrazit portret</button>
+        <div class="upload-panel hidden js-portrait-panel">
+          <label for="portrait-upload-1">Nahrat portret</label>
+          <input id="portrait-upload-1" type="file" accept="image/*" class="js-portrait-upload" />
+          <img class="preview-img hidden js-portrait-preview" alt="Nahled portretu Blodreiny" />
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2026 Chult Archiv - D&amp;D Kampanie</p>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector(".js-toggle-portrait");
+      var panel = document.querySelector(".js-portrait-panel");
+      var input = document.querySelector(".js-portrait-upload");
+      var preview = document.querySelector(".js-portrait-preview");
+
+      if (!toggle || !panel || !input || !preview) return;
+
+      toggle.addEventListener("click", function () {
+        var isHidden = panel.classList.toggle("hidden");
+        toggle.textContent = isHidden ? "Zobrazit portret" : "Skryt portret";
+      });
+
+      input.addEventListener("change", function () {
+        var file = input.files && input.files[0];
+        if (!file) return;
+
+        var reader = new FileReader();
+        reader.addEventListener("load", function (event) {
+          preview.src = event.target.result;
+          preview.classList.remove("hidden");
+        });
+        reader.readAsDataURL(file);
+      });
+    })();
+  </script>
+</body>
+</html>

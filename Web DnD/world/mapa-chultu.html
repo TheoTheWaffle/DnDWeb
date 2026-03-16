@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mapa Chultu</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+</head>
+<body class="map-page">
+  <header class="topbar">
+    <a class="brand" href="../index.html">Chult - Archiv</a>
+    <nav class="nav">
+      <a href="../index.html">Domu</a>
+      <a href="../characters.html">Postavy &amp; NPC</a>
+      <a href="../world.html" class="active">Svet</a>
+    </nav>
+  </header>
+
+  <main class="map-layout">
+    <div class="map-toolbar">
+      <h1>Mapa Chultu</h1>
+      <p>Celoplosna mapa se 4 body kampane. Minimalni oddaleni je zamcene na vychozi pohled.</p>
+      <a href="../world.html" class="button">Zpet na svet</a>
+    </div>
+    <div id="leaflet-map" class="leaflet-map-full"></div>
+  </main>
+
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script>
+    (function () {
+      var imageWidth = 1536;
+      var imageHeight = 1024;
+      var southWest = L.latLng(imageHeight, 0);
+      var northEast = L.latLng(0, imageWidth);
+      var bounds = L.latLngBounds(southWest, northEast);
+
+      var map = L.map("leaflet-map", {
+        crs: L.CRS.Simple,
+        minZoom: -2,
+        maxZoom: 2,
+        zoomSnap: 0.25,
+        maxBounds: bounds,
+        maxBoundsViscosity: 1.0
+      });
+
+      L.imageOverlay("Chult.png", bounds).addTo(map);
+      map.fitBounds(bounds);
+      map.setMinZoom(map.getZoom());
+
+      [
+        { coords: [340, 340], title: "Port Nyanzaru", href: "port-nyanzaru.html" },
+        { coords: [420, 1300], title: "Vivecus", href: "vivecus.html" },
+        { coords: [360, 600], title: "Okoli Port Nyanzaru", href: "okoli-port-nyanzaru.html" },
+        { coords: [445, 520], title: "Kah'Chuk", href: "kah-chuk.html" }
+      ].forEach(function (point) {
+        var popupLink = document.createElement("a");
+        popupLink.href = point.href;
+        popupLink.textContent = point.title;
+
+        L.marker(point.coords)
+          .addTo(map)
+          .bindPopup(popupLink);
+      });
+    })();
+  </script>
+</body>
+</html>
